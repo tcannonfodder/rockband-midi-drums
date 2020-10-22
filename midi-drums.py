@@ -51,7 +51,7 @@ def current_button_combo():
 
     for button_combo in active_button_combos:
         # message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["velocity"])
-        mido.Message('note_on', note=100, velocity=3, time=6.2)
+        message = mido.Message('note_on', note=100, velocity=3, time=6.2)
         port.send(message)
 
 
