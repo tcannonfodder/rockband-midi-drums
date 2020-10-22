@@ -5,11 +5,6 @@ from xbox360controller import Xbox360Controller
 import json
 import rtmidi
 
-midiout = rtmidi.MidiOut()
-available_ports = midiout.get_ports()
-
-midiout.open_virtual_port("My virtual output")
-
 print(mido.get_output_names())
 
 # read file
@@ -20,7 +15,7 @@ with open('settings.json', 'r') as myfile:
 settings = json.loads(data)
 
 controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
-port = mido.open_output("My virtual output")
+port = mido.open_output("My virtual output", virtual=True)
 print(port)
 
 def is_active_button(button):
