@@ -1,4 +1,5 @@
 {
+  "midi_output": "Midi Through Port-0",
   "button_combos": [
     {
       "name": "snare",
