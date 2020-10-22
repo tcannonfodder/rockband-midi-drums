@@ -11,11 +11,18 @@ with open('settings.json', 'r') as myfile:
 # parse file
 settings = json.loads(data)
 
-controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
-port = mido.open_output(settings["midi_output"])
-
-
 print(mido.get_output_names())
+
+controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
+
+midiout = rtmidi.MidiOut()
+available_ports = midiout.get_ports()
+
+if available_ports:
+    port =midiout.open_port(0)
+else:
+    port = midiout.open_virtual_port("My virtual output")
+
 print(port)
 
 def is_active_button(button):
