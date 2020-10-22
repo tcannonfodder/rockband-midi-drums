@@ -2,9 +2,50 @@
   "midi_output": "Midi Through Port-0",
   "button_combos": [
     {
-      "name": "snare",
+      "name": "kick",
+      "combo": ["button_trigger_l"],
+      "note_number": 36,
+      "note_velocity": 64
+    },
+    {
+      "name": "high tom",
       "combo": ["button_a", "button_thumb_r"],
-      "note_number": 64,
+      "note_number": 50,
+      "note_velocity": 64
+    },
+
+    {
+      "name": "blue mid-high tom",
+      "combo": ["button_x", "button_thumb_r"],
+      "note_number": 47,
+      "note_velocity": 64
+    },
+
+    {
+      "name": "yellow low tom",
+      "combo": ["button_y", "button_thumb_r"],
+      "note_number": 43,
+      "note_velocity": 64
+    },
+
+    {
+      "name": "red snare",
+      "combo": ["button_b", "button_thumb_r"],
+      "note_number": 38,
+      "note_velocity": 64
+    },
+
+    {
+      "name": "yellow cymbal hihat",
+      "combo": ["button_y", "dpad_up"],
+      "note_number": 33,
+      "note_velocity": 64
+    },
+
+    {
+      "name": "blue cymbal crash right",
+      "combo": ["button_x", "dpad_down"],
+      "note_number": 57,
       "note_velocity": 64
     }
   ]
