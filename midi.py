@@ -10,7 +10,20 @@ def is_active_button(button):
 
 
 def current_button_combo():
-    active_buttons = [x for x in controller.buttons if is_active_button(x)]
+    active_buttons = [x.name for x in controller.buttons if is_active_button(x)]
+
+    if controller.hat.x_axis == 1:
+        active_buttons << "dpad_right"
+
+    if controller.hat.x_axis == -1:
+        active_buttons << "dpad_left"
+
+    if controller.hat.y_axis == 1:
+        active_buttons << "dpad_up"
+
+    if controller.hat.y_axis == -1:
+        active_buttons << "dpad_down"
+
     # active_buttons = filter(is_active_button, controller.buttons)
     print("Buttons: {0}".format(active_buttons))
     # for button in :

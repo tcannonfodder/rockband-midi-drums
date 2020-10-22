@@ -1,5 +1,8 @@
 {
   "button_combos": [
-    {"name": }
+    {
+      "name": "snare",
+      "combo": ["button_a", "button_thumb_r"]
+    }
   ]
 }
