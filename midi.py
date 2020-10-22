@@ -13,16 +13,16 @@ def current_button_combo():
     active_buttons = [x.name for x in controller.buttons if is_active_button(x)]
 
     if controller.hat.x == 1:
-        active_buttons << "dpad_right"
+        active_buttons.append("dpad_right")
 
     if controller.hat.x == -1:
-        active_buttons << "dpad_left"
+        active_buttons.append("dpad_left")
 
     if controller.hat.y == 1:
-        active_buttons << "dpad_up"
+        active_buttons.append("dpad_up")
 
     if controller.hat.y == -1:
-        active_buttons << "dpad_down"
+        active_buttons.append("dpad_down")
 
     # active_buttons = filter(is_active_button, controller.buttons)
     print("Buttons: {0}".format(active_buttons))
