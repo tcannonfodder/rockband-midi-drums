@@ -22,7 +22,7 @@ def is_active_button(button):
 
 
 def is_button_combo(button_combo, active_buttons):
-    return set(button_combo["combo"]) == set(active_buttons)
+    return set(button_combo["combo"]) <= set(active_buttons)
 
 def current_button_combo():
     active_buttons = [x.name for x in controller.buttons if is_active_button(x)]
@@ -74,7 +74,6 @@ try:
     with controller:
         for button in controller.buttons:
             button.when_pressed = on_button_pressed
-            button.when_released = on_button_released
 
         controller.info()
         # Left and right axis move event
