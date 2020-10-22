@@ -1,7 +1,6 @@
 import midi
 import signal
 from xbox360controller import Xbox360Controller
-from midi import MidiConnector
 import json
 
 # read file
