@@ -12,7 +12,7 @@ with open('settings.json', 'r') as myfile:
 settings = json.loads(data)
 
 controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
-port = mido.open_output('Drum Kit')
+port = mido.open_output()
 
 
 
@@ -50,7 +50,8 @@ def current_button_combo():
     #         print("Button {0} is active")
 
     for button_combo in active_button_combos:
-        message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["velocity"])
+        # message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["velocity"])
+        mido.Message('note_on', note=100, velocity=3, time=6.2)
         port.send(message)
 
 
