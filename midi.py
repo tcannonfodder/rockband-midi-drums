@@ -1,4 +1,4 @@
-import midi
+from midi import MidiConnector
 import signal
 from xbox360controller import Xbox360Controller
 import json
