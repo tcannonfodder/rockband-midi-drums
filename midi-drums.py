@@ -5,6 +5,7 @@ from xbox360controller import Xbox360Controller
 import json
 import rtmidi
 
+print(mido.backend)
 print(mido.get_output_names())
 
 # read file
