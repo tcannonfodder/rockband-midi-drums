@@ -1,4 +1,4 @@
-from midi import MidiConnector
+import mido
 import signal
 from xbox360controller import Xbox360Controller
 import json
@@ -11,7 +11,8 @@ with open('settings.json', 'r') as myfile:
 settings = json.loads(data)
 
 controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
-midi_connection = MidiConnector('/dev/serial0')
+port = mido.open_output('Drum Kit')
+
 
 
 def is_active_button(button):
@@ -48,8 +49,8 @@ def current_button_combo():
     #         print("Button {0} is active")
 
     for button_combo in active_button_combos:
-        message = NoteOn(button_combo["note_number"], button_combo["velocity"])
-        print(midi_connection.write(message))
+        message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["velocity"])
+        port.send(message)
 
 
 def on_button_pressed(button):
