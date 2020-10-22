@@ -2,7 +2,9 @@
   "button_combos": [
     {
       "name": "snare",
-      "combo": ["button_a", "button_thumb_r"]
+      "combo": ["button_a", "button_thumb_r"],
+      "note_number": 64,
+      "note_velocity": 64
     }
   ]
 }

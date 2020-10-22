@@ -1,5 +1,6 @@
 import signal
 from xbox360controller import Xbox360Controller
+from midi import MidiConnector
 import json
 
 # read file
@@ -10,6 +11,8 @@ with open('settings.json', 'r') as myfile:
 settings = json.loads(data)
 
 controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
+midi_connection = MidiConnector('/dev/serial0')
+
 
 def is_active_button(button):
     return button.is_pressed
@@ -43,6 +46,10 @@ def current_button_combo():
     # for button in :
     #     if button.is_pressed
     #         print("Button {0} is active")
+
+    for button_combo in active_button_combos:
+        message = NoteOn(button_combo["note_number"], button_combo["velocity"])
+        print(midi_connection.write(message))
 
 
 def on_button_pressed(button):
