@@ -1,13 +1,22 @@
 import signal
 from xbox360controller import Xbox360Controller
+import json
 
-import pdb
+# read file
+with open('settings.json', 'r') as myfile:
+    data=myfile.read()
+
+# parse file
+settings = json.loads(data)
 
 controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
 
 def is_active_button(button):
     return button.is_pressed
 
+
+def is_button_combo(button_combo, active_buttons):
+    return set(button_combo["combo"]) == set(active_buttons)
 
 def current_button_combo():
     active_buttons = [x.name for x in controller.buttons if is_active_button(x)]
@@ -26,6 +35,11 @@ def current_button_combo():
 
     # active_buttons = filter(is_active_button, controller.buttons)
     print("Buttons: {0}".format(active_buttons))
+
+
+    active_button_combos = [x for x in settings["button_combos"] if is_active_button(x)]
+
+    print("COMBOs: {0}".format(active_button_combos))
     # for button in :
     #     if button.is_pressed
     #         print("Button {0} is active")
@@ -55,7 +69,6 @@ try:
         controller.axis_l.when_moved = on_axis_moved
         controller.axis_r.when_moved = on_axis_moved
 
-        pdb.set_trace()
         signal.pause()
 except KeyboardInterrupt:
     pass
