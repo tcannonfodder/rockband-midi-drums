@@ -13,7 +13,7 @@ with open('settings.json', 'r') as myfile:
 # parse file
 settings = json.loads(data)
 
-controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
+controller = Xbox360Controller(2, axis_threshold=0.2, raw_mode=False)
 port = mido.open_output("My virtual output", virtual=True)
 print(port)
 
