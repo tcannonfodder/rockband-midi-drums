@@ -1,9 +1,7 @@
-import rtmidi_python as rtmidi
 import mido
 import signal
 from xbox360controller import Xbox360Controller
 import json
-import rtmidi
 
 print(mido.backend)
 print(mido.get_output_names())
@@ -54,9 +52,10 @@ def current_button_combo():
 
     for button_combo in active_button_combos:
         # message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["velocity"])
-        message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["note_velocity"], time=6.2)
-        print(message)
-        print(port.send(message))
+        message = mido.Message('note_on', note=button_combo["note_number"], velocity=button_combo["note_velocity"], time=0.10)
+        port.send(message)
+        message = mido.Message('note_off', note=button_combo["note_number"], velocity=button_combo["note_velocity"])
+        port.send(message)
 
 
 def on_button_pressed(button):
