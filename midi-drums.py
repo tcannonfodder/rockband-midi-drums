@@ -14,7 +14,7 @@ with open('settings.json', 'r') as myfile:
 settings = json.loads(data)
 
 controller = Xbox360Controller(2, axis_threshold=0.2, raw_mode=False)
-port = mido.open_output("My virtual output", virtual=True)
+port = mido.open_output(settings["midi_output_port_name"], virtual=True)
 print(port)
 
 def is_active_button(button):

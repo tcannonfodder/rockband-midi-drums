@@ -1,5 +1,5 @@
 {
-  "midi_output": "Midi Through Port-0",
+  "midi_output_port_name": "Drum Kit",
   "button_combos": [
     {
       "name": "kick",
