@@ -1,4 +1,4 @@
-import rtmidi_python as rtmidi
+# import rtmidi_python as rtmidi
 import mido
 import signal
 from xbox360controller import Xbox360Controller
