@@ -15,7 +15,7 @@ controller = Xbox360Controller(0, axis_threshold=0.2, raw_mode=False)
 port = mido.open_output()
 
 
-print mido.get_output_names()
+print(mido.get_output_names())
 
 def is_active_button(button):
     return button.is_pressed
