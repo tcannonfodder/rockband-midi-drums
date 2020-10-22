@@ -37,7 +37,7 @@ def current_button_combo():
     print("Buttons: {0}".format(active_buttons))
 
 
-    active_button_combos = [x for x in settings["button_combos"] if is_active_button(x)]
+    active_button_combos = [x for x in settings["button_combos"] if is_button_combo(x)]
 
     print("COMBOs: {0}".format(active_button_combos))
     # for button in :
